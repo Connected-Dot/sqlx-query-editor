@@ -1,71 +1,49 @@
-# sqlx-query-generator README
+# SQLx Query Generator
 
-This is the README for your extension "sqlx-query-generator". After writing up a brief description, we recommend including the following sections.
+The SQLx Query Generator is a Visual Studio Code extension that helps you generate SQL queries using the SQLx library in Rust. It provides a set of powerful features to streamline your database interactions and make your code more maintainable.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### 1. Query Generation
 
-For example if there is an image subfolder under your extension project workspace:
+The extension allows you to generate SQL queries easily and efficiently. It provides a user-friendly interface to create queries for various database operations, such as SELECT, INSERT, UPDATE, and DELETE. You can specify the table, columns, conditions, and other parameters to generate the desired query.
 
-\!\[feature X\]\(images/feature-x.png\)
+### 2. SQLx Integration
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+The SQLx Query Generator seamlessly integrates with the SQLx library, which is a popular Rust library for database access. It leverages the power of SQLx to execute the generated queries and interact with the database. This ensures that your queries are efficient, secure, and compatible with a wide range of database systems.
 
-## Requirements
+### 3. Code Generation
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+In addition to query generation, the extension also supports code generation. It can automatically generate Rust code snippets that use the SQLx library to execute the generated queries. This saves you time and effort by eliminating the need to manually write the code for executing queries.
 
-## Extension Settings
+### 4. Query Validation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+The SQLx Query Generator includes a query validation feature that helps you catch errors and typos in your queries. It performs syntax checking and provides helpful error messages if there are any issues with the generated queries. This ensures that your queries are valid and can be executed without any runtime errors.
 
-For example:
+### 5. Customization
 
-This extension contributes the following settings:
+The extension offers various customization options to suit your preferences and project requirements. You can configure the formatting style of the generated queries, choose the database dialect, and specify other settings to align with your project's database setup.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Getting Started
 
-## Known Issues
+To get started with the SQLx Query Generator, follow these steps:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+1. Install the extension from the Visual Studio Code Marketplace.
+2. Open a Rust project that uses the SQLx library.
+3. Open the SQLx Query Generator extension in Visual Studio Code.
+4. Use the provided interface to generate SQL queries based on your requirements.
+5. Execute the generated queries using the SQLx library in your Rust code.
 
-## Release Notes
+<!-- For detailed usage instructions and examples, please refer to the [documentation](https://your-documentation-url). -->
 
-Users appreciate release notes as you update your extension.
+## Contributing
 
-### 1.0.0
+Contributions to the SQLx Query Generator are welcome! If you encounter any issues, have suggestions for improvements, or would like to contribute new features, please open an issue or submit a pull request on the [GitHub repository](https://github.com/sqlx-query-generator).
 
-Initial release of ...
+## License
 
-### 1.0.1
+The SQLx Query Generator is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the [LICENSE](https://github.com/sqlx-query-generator/LICENSE) file for more details.
 
-Fixed issue #.
+## Contact
 
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+If you have any questions or need further assistance, feel free to contact the project maintainer at kyle@cnctd.world.

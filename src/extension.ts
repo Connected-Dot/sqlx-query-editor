@@ -76,32 +76,42 @@ function parseFields(fieldsBlock: string): string[] {
 function generateSqlxQuery(newStruct: RustStruct, baseStruct: RustStruct, queryType: 'insert' | 'select' | 'update' | 'delete'): string {
     const fieldNames = newStruct.fields.join(', ');
     const placeholders = newStruct.fields.map((_, index) => `$${index + 1}`).join(', ');
+    const returningFields = baseStruct.fields.join(', ');
 
     switch (queryType) {
         case 'insert':
             return `sqlx::query!(
-                "INSERT INTO ${camelToSnake(newStruct.name)} (${fieldNames})
-                VALUES (${placeholders})
-                RETURNING *;"
+                r#"
+    INSERT INTO ${camelToSnake(baseStruct.name)} (${fieldNames})
+    VALUES (${placeholders})
+    RETURNING ${returningFields}
+                "#,
+                ${newStruct.fields.map(field => 'self.' + field).join(', ')}
             );`;
         case 'select':
             return `sqlx::query_as!(
                 ${baseStruct.name},
-                "SELECT * FROM ${camelToSnake(baseStruct.name)}"
+                r#"
+    SELECT ${returningFields}
+    FROM ${camelToSnake(baseStruct.name)}
+                "#,
             );`;
         case 'update':
-            const updateFields = newStruct.fields.map((field, index) => `${field} = $${index + 1}`).join(', ');
             return `sqlx::query!(
-                "UPDATE ${camelToSnake(baseStruct.name)}
-                SET ${updateFields}
-                WHERE id = $1
-                RETURNING *;"
+                r#"
+    UPDATE ${camelToSnake(baseStruct.name)}
+    SET ${newStruct.fields.map((field, index) => `${field} = $${index + 1}`).join(', ')}
+    WHERE id = $1
+                "#,
+                ${newStruct.fields.map(field => 'self.' + field).join(', ')}, self.id
             );`;
         case 'delete':
             return `sqlx::query!(
-                "DELETE FROM ${camelToSnake(baseStruct.name)}
-                WHERE id = $1
-                RETURNING *;"
+                r#"
+    DELETE FROM ${camelToSnake(baseStruct.name)}
+    WHERE id = $1
+                "#,
+                self.id
             );`;
     }
 }

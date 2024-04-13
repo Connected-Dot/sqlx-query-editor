@@ -3,6 +3,7 @@
   "displayName": "SQLx Query Generator",
   "description": "Generates query statements that are directly written into your code",
   "version": "0.0.1",
+  "repository": "https://github.com/Connected-Dot/sqlx-query-editor.git",
   "engines": {
     "vscode": "^1.88.0"
   },
